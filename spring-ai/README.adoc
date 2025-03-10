@@ -1,0 +1,101 @@
+////
+  Copyright 2025 The Bank of New York Mellon.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+= Spring AI with Azure OpenAI and PostgreSQL Vector Storage
+
+This module demonstrates how to use Spring AI with Azure OpenAI and PostgreSQL vector storage to build AI-powered applications.
+
+== Overview
+
+Spring AI is a framework that simplifies the integration of AI capabilities into Spring applications. This module focuses on:
+
+1. *RAG (Retrieval Augmented Generation)* - Enhancing AI responses with relevant context from a vector database
+2. *Writer-Evaluator Agent* - Creating a content generation workflow with feedback and refinement
+3. *Azure OpenAI Integration* - Connecting to Azure OpenAI services for embeddings and chat completions
+4. *PostgreSQL Vector Storage* - Using pgvector extension for efficient similarity search
+
+== Prerequisites
+
+* Java 17 or later
+* Maven
+* PostgreSQL with pgvector extension
+* Azure OpenAI service access
+
+== Key Components
+
+=== RAG Service
+
+The RAG service demonstrates how to:
+
+* Convert input queries to embeddings
+* Find similar previous Q&As using vector similarity search
+* Use found Q&As as context for generating AI responses
+* Store interactions for future reference
+
+=== Blog Writer Service
+
+The Blog Writer service demonstrates how to:
+
+* Generate content using AI
+* Evaluate content quality
+* Refine content based on feedback
+* Implement an iterative improvement workflow
+
+== Configuration
+
+To configure the application, you need to set the following properties in `application.properties`:
+
+[source,properties]
+----
+# Azure OpenAI Configuration
+spring.ai.azure.openai.api-key=your-api-key-here
+spring.ai.azure.openai.endpoint=your-endpoint-here
+spring.ai.azure.openai.chat.options.deployment-name=your-chat-deployment
+spring.ai.azure.openai.embedding.options.deployment-name=your-embedding-deployment
+
+# Database Configuration
+spring.datasource.url=jdbc:postgresql://your-host:5432/your-database
+spring.datasource.username=your-username
+spring.datasource.password=your-password
+----
+
+== Running the Application
+
+To run the application:
+
+[source,bash]
+----
+mvn spring-boot:run
+----
+
+This will start a Spring Shell application with commands for interacting with the RAG and Blog Writer services.
+
+== Usage
+
+The application provides a shell interface with the following commands:
+
+* `help` - Show available commands and usage information
+* `ask "Your question"` - Ask questions using RAG
+* `write "Your topic"` - Generate content using Writer-Evaluator agent
+* `exit` - Exit the application
+
+== Learn More
+
+For more information about Spring AI, visit:
+
+* https://docs.spring.io/spring-ai/reference/[Spring AI Documentation]
+* https://learn.microsoft.com/azure/cognitive-services/openai/[Azure OpenAI Service]
+* https://github.com/pgvector/pgvector[PostgreSQL pgvector]

@@ -46,6 +46,7 @@
         <module>spring-boot-with-admin/admin</module>
         <module>spring-boot-with-admin/registry</module>
         <module>spring-boot-with-admin/notification</module>
+        <module>spring-ai</module>
     </modules>
 
 </project>
