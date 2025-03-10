@@ -14,7 +14,7 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img 
-              src="https://www.bnymellon.com/content/dam/bny-mellon/images/logos/bny-mellon-logo.svg" 
+              src="https://logos-download.com/wp-content/uploads/2016/09/BNY_Mellon_logo_Bank_of_New_York.png" 
               alt="BNY Mellon Logo" 
               className="h-8" 
             />
